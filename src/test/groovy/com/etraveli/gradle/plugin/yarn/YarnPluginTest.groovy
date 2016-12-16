@@ -1,10 +1,15 @@
 package com.etraveli.gradle.plugin.yarn
 
-import spock.lang.Specification
+import util.TestProjectSetup
 
-import static org.assertj.core.api.Assertions.assertThat;
-import org.testng.annotations.Test;
+class YarnPluginTest extends TestProjectSetup {
+  def "correct tasks get applied"() {
+    when:
+    this.project.apply plugin: 'com.etraveli.yarn'
+    this.project.evaluate()
 
-class YarnPluginTest extends Specification {
-
+    then:
+    this.project.tasks.size() == 1
+    this.project.tasks.getByName(YarnSetupTask.NAME)
+  }
 }
