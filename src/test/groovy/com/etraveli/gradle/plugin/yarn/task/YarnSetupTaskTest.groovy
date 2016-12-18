@@ -1,6 +1,5 @@
 package com.etraveli.gradle.plugin.yarn.task
 
-import com.etraveli.gradle.plugin.yarn.YarnSetupTask
 import org.junit.Rule
 import org.junit.rules.TemporaryFolder
 import spock.lang.PendingFeature
