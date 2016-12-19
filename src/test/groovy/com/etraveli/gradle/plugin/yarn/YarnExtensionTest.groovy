@@ -9,11 +9,13 @@ class YarnExtensionTest extends TestProjectSetup {
     def config = YarnExtension.get(this.project)
 
     then:
-    config != null
-    config.version == 'latest'
-    config.distBaseUrl == 'https://yarnpkg.com'
-    config.cacheDir != null
-    config.workDir != null
-    config.nodeModulesDir != null
+    with(config) {
+      config != null
+      config.version == 'latest'
+      config.distBaseUrl == 'https://yarnpkg.com'
+      config.cacheDir != null
+      config.workDir != null
+      config.nodeModulesDir != null
+    }
   }
 }
