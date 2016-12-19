@@ -1,4 +1,4 @@
-package com.etraveli.gradle.plugin.yarn
+package com.etraveli.gradle.plugin.yarn.task
 
 import org.gradle.api.DefaultTask
 
