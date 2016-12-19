@@ -10,8 +10,8 @@ class YarnSetupTaskTest extends Specification {
   @Rule
   final TemporaryFolder temporaryFolder = new TemporaryFolder();
 
-  def File projectDir
-  def IntegrationTestRunner runner
+  File projectDir
+  IntegrationTestRunner runner
 
   def setup() {
     projectDir = this.temporaryFolder.root

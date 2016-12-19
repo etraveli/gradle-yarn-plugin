@@ -1,12 +1,29 @@
 package com.etraveli.gradle.plugin.yarn
 
-import util.TestProjectSetup
+import org.gradle.api.Project
+import org.gradle.testfixtures.ProjectBuilder
+import org.junit.Rule
+import org.junit.rules.TemporaryFolder
+import spock.lang.Specification
 
-class YarnExtensionTest extends TestProjectSetup {
+class YarnExtensionTest extends Specification {
+
+  @Rule
+  final TemporaryFolder temporaryFolder = new TemporaryFolder();
+
+  Project project
+
+  def setup() {
+    project = ProjectBuilder
+      .builder()
+      .withProjectDir(temporaryFolder.root)
+      .build()
+  }
+
   def "sets correct default values"() {
     when:
-    this.project.apply plugin: 'com.etraveli.yarn'
-    def config = YarnExtension.get(this.project)
+    project.apply plugin: 'com.etraveli.yarn'
+    def config = YarnExtension.get(project)
 
     then:
     with(config) {
